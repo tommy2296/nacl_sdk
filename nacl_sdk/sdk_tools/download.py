@@ -16,15 +16,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 def UrlOpen(url):
-  ssl._create_default_https_context = ssl._create_unverified_context
-  request = fancy_urllib.FancyRequest(url)
-  # ca_certs = os.path.join(SCRIPT_DIR, 'cacerts.txt')
-  # request.set_ssl_info(ca_certs=ca_certs)
-  url_opener = urllib2.build_opener(
-      fancy_urllib.FancyProxyHandler(),
-      fancy_urllib.FancyRedirectHandler(),
-      fancy_urllib.FancyHTTPSHandler())
-  return url_opener.open(request)
+  return urllib2.urlopen(url)
 
 
 def MakeProgressFunction(file_size):
