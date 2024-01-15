@@ -9,6 +9,7 @@ import sys
 # pylint: disable=E0611
 from third_party import fancy_urllib
 import urllib2
+import ssl
 
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -18,6 +19,7 @@ def UrlOpen(url):
   request = fancy_urllib.FancyRequest(url)
   # ca_certs = os.path.join(SCRIPT_DIR, 'cacerts.txt')
   # request.set_ssl_info(ca_certs=ca_certs)
+  ssl.create_ssl_context()
   url_opener = urllib2.build_opener(
       fancy_urllib.FancyProxyHandler(),
       fancy_urllib.FancyRedirectHandler(),
