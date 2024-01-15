@@ -13,8 +13,8 @@ SOURCE_WHITELIST = [
 ]
 
 def IsSourceValid(url):
-  E1101: Instance of 'ParseResult' has no 'scheme' member
-  pylint: disable=E1101
+  # E1101: Instance of 'ParseResult' has no 'scheme' member
+  # pylint: disable=E1101
 
   given = urlparse.urlparse(url)
   for allowed_url in SOURCE_WHITELIST:
