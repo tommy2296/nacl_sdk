@@ -142,7 +142,7 @@ def LoadRemoteManifest(url):
   url_stream = None
   try:
     manifest_stream = cStringIO.StringIO()
-    url_stream = download.UrlOpen(url)
+    url_stream = urllib2.urlopen(url)
     download.DownloadAndComputeHash(url_stream, manifest_stream)
   except urllib2.URLError as e:
     raise Error('Unable to read remote manifest from URL "%s".\n  %s' % (
